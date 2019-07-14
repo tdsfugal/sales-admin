@@ -13,6 +13,14 @@ export default props => {
       accessor: 'itemDescription',
     },
     {
+      Header: 'Merchant Name',
+      accessor: 'merchantName',
+    },
+    {
+      Header: 'Merchant Address',
+      accessor: 'merchantAddress',
+    },
+    {
       Header: 'Item Price',
       accessor: 'itemPrice',
     },
@@ -21,12 +29,8 @@ export default props => {
       accessor: 'quantity',
     },
     {
-      Header: 'Merchant Name',
-      accessor: 'merchantName',
-    },
-    {
-      Header: 'Merchant Address',
-      accessor: 'merchantAddress',
+      Header: 'Total',
+      accessor: 'total',
     },
   ];
   return <ReactTable data={data} columns={columns} />;
