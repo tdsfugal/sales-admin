@@ -1,3 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default () => <header className="App-reader" />;
+export default class Reader extends Component {
+  render() {
+    return <div className="Reader" />;
+  }
+}

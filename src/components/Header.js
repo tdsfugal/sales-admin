@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default () => <header className="App-header" />;
+export default () => <header className="Header" />;
