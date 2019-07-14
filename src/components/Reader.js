@@ -16,7 +16,7 @@ export default class Reader extends Component {
       return acc + row.total;
     }, 0);
 
-    console.log(this.totalSales);
+    this.data.push({ total: this.totalSales });
   }
 
   render() {
