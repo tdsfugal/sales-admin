@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactTable from 'react-table';
-import 'react-table/react-table.css';
 
 export default props => {
   const { data } = props;
