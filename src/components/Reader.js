@@ -19,15 +19,22 @@ export default class Reader extends Component {
       // TODO - this could also be dynamic. The accessor names are not special.
       this.data = splits.map(row => {
         const cells = row.split(',');
+        // TODO - Check for NAN
         return {
           customerName: cells[0],
           itemDescription: cells[1],
-          itemPrice: cells[2],
-          quantity: cells[3],
+          itemPrice: parseFloat(cells[2]),
+          quantity: parseInt(cells[3]),
           merchantName: cells[4],
           merchantAddress: cells[5],
         };
       });
+
+      this.totalSales = this.data.reduce((acc, row) => {
+        return acc + row.itemPrice * row.quantity;
+      }, 0);
+
+      console.log(this.totalSales);
     }
   }
 
