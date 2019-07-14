@@ -52,7 +52,7 @@ export default class Workspace extends Component {
     if (csvData) {
       return (
         <div className="Workspace">
-          <Reader props={{ csvData }} />
+          <Reader csvData={csvData} />
         </div>
       );
     } else {
