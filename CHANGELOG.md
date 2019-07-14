@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added this Changelog
 - Restructured directory tree
 - Split view into header and workspace
+- Added file drop to workspace
 
 ### Removed
 
