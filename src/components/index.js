@@ -1,2 +1,2 @@
 export { default as Header } from './Header';
-export { default as Reader } from './Reader';
+export { default as Workspace } from './Workspace';

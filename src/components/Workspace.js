@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Reader extends Component {
+export default class Workspace extends Component {
   render() {
     return <div className="Reader" />;
   }

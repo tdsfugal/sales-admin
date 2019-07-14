@@ -14,27 +14,17 @@ code {
 
 .App {
   text-align: center;
-  display: flex;
-  flex-direction: column;
 }
 
 .Header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #459;
+  min-height: 10vh;
   color: white;
+  z-index: 0;
 }
 
 .Reader {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: left;
-  justify-content: left;
-  color: white;
+  background-color: #eef;
+  min-height: 90vh;
+  z-index: 100;
 }
