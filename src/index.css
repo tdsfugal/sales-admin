@@ -28,7 +28,7 @@ code {
 .Workspace {
   background-color: #eef;
   min-height: 90vh;
-  color: black;
+  color: #aab;
   position: relative;
   z-index: 0;
 }

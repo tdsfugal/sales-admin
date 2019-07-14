@@ -6,7 +6,7 @@ export default class Workspace extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      csvData: null,
+      csvData: 'some data',
     };
   }
 
