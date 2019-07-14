@@ -13,13 +13,11 @@ export default class Reader extends Component {
     this.data = parseCsvData(csvData);
 
     this.totalSales = this.data.reduce((acc, row) => {
-      return acc + row.total;
+      return acc + row.sales;
     }, 0);
-
-    this.data.push({ total: this.totalSales });
   }
 
   render() {
-    return <Table data={this.data} />;
+    return <Table data={this.data} totalSales={this.totalSales} />;
   }
 }

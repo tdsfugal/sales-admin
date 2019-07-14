@@ -1,15 +1,79 @@
 import React from 'react';
-import ReactTable from 'react-table';
+import ReactTable, { ReactTableDefaults } from 'react-table';
+
+Object.assign(ReactTableDefaults, {
+  column: Object.assign(ReactTableDefaults.column, {
+    style: {
+      fontSize: '14px',
+      textAlign: 'left',
+    },
+    headerStyle: {
+      fontSize: '14px',
+      fontWeight: 'bold',
+      textAlign: 'left',
+    },
+  }),
+});
 
 export default props => {
-  const { data } = props;
+  const { data, totalSales } = props;
+
+  let defaultPageSize = 20;
+  let showPagination = true;
+  if (data.length < 20) {
+    defaultPageSize = data.length + 1;
+    showPagination = false;
+  }
+
+  Object.assign(ReactTableDefaults, {
+    defaultPageSize,
+    showPagination,
+  });
+
   const columns = [
     {
       Header: 'Customer Name',
       accessor: 'customerName',
+      Footer: () => <h3>TOTAL SALES</h3>,
     },
     {
-      Header: 'Item Description',
+      Header: 'Sales',
+      accessor: 'sales',
+      maxWidth: 80,
+      Cell: ({ row }) => `$ ${row.sales.toFixed(2)}`,
+      style: Object.assign({}, ReactTableDefaults.column.style, {
+        textAlign: 'right',
+      }),
+      headerStyle: Object.assign({}, ReactTableDefaults.column.headerStyle, {
+        textAlign: 'right',
+      }),
+      Footer: () => <h3>{`$ ${totalSales.toFixed(2)}`}</h3>,
+    },
+    {
+      Header: 'Quantity',
+      accessor: 'quantity',
+      maxWidth: 80,
+      style: Object.assign({}, ReactTableDefaults.column.style, {
+        textAlign: 'center',
+      }),
+      headerStyle: Object.assign({}, ReactTableDefaults.column.headerStyle, {
+        textAlign: 'center',
+      }),
+    },
+    {
+      Header: 'Price',
+      accessor: 'itemPrice',
+      Cell: ({ row }) => `$ ${row.itemPrice.toFixed(2)}`,
+      maxWidth: 80,
+      style: Object.assign({}, ReactTableDefaults.column.style, {
+        textAlign: 'right',
+      }),
+      headerStyle: Object.assign({}, ReactTableDefaults.column.headerStyle, {
+        textAlign: 'right',
+      }),
+    },
+    {
+      Header: 'Description',
       accessor: 'itemDescription',
     },
     {
@@ -20,18 +84,12 @@ export default props => {
       Header: 'Merchant Address',
       accessor: 'merchantAddress',
     },
-    {
-      Header: 'Item Price',
-      accessor: 'itemPrice',
-    },
-    {
-      Header: 'Quantity',
-      accessor: 'quantity',
-    },
-    {
-      Header: 'Total',
-      accessor: 'total',
-    },
   ];
-  return <ReactTable data={data} columns={columns} />;
+  return (
+    <ReactTable
+      data={data}
+      columns={columns}
+      sorted={[{ id: 'sales', desc: true }]}
+    />
+  );
 };
