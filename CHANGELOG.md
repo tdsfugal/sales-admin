@@ -9,14 +9,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added total column
+### Changed
+
+### Removed
+
+## [0.2.0] - 2019-07-15
+
+### Added
+
+- Added sales column
+- Added Sales total footer
+- Tests for CSV parsing
 
 ### Changed
 
 - Reordered columns
 - Darkened font
+- General UX cleanup
+- Ignores non-CSV drops
 
 ### Removed
+
+- Reader component
 
 ## [0.1.1] - 2019-07-14
 
