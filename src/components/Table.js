@@ -16,12 +16,12 @@ Object.assign(ReactTableDefaults, {
 });
 
 export default props => {
-  const { data, totalSales } = props;
+  const { rows, totalSales } = props;
 
   let defaultPageSize = 20;
   let showPagination = true;
-  if (data.length < 20) {
-    defaultPageSize = data.length + 1;
+  if (rows.length < 20) {
+    defaultPageSize = rows.length + 1;
     showPagination = false;
   }
 
@@ -87,7 +87,7 @@ export default props => {
   ];
   return (
     <ReactTable
-      data={data}
+      data={rows}
       columns={columns}
       sorted={[{ id: 'sales', desc: true }]}
     />

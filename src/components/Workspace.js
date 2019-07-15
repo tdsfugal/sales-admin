@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 
-import Reader from './Reader';
+import Table from './Table';
+
+import { parseCsvData } from '../util';
 
 export default class Workspace extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      csvData: null,
+      rows: [],
+      totalSales: 0,
     };
 
     this.onDragEnter = ev => {
@@ -42,17 +45,29 @@ export default class Workspace extends Component {
 
     this.loadCsvFile = file => {
       const reader = new FileReader();
-      reader.onload = () => this.setState({ csvData: reader.result });
+      reader.onload = () => {
+        const csvData = reader.result;
+        // Parse the csv data and compute total sales
+        const rows = parseCsvData(csvData);
+        const totalSales = rows.reduce((acc, row) => {
+          return acc + row.sales;
+        }, 0);
+        // Trigger a render cycle
+        this.setState({
+          rows,
+          totalSales,
+        });
+      };
       reader.readAsText(file);
     };
   }
 
   render() {
-    const { csvData } = this.state;
-    if (csvData) {
+    const { rows, totalSales } = this.state;
+    if (rows.length > 0) {
       return (
         <div className="Workspace">
-          <Reader csvData={csvData} />
+          <Table rows={rows} totalSales={totalSales} />
         </div>
       );
     } else {
