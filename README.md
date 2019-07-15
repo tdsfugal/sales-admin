@@ -4,8 +4,8 @@ To run this demo, first clone this repo then:
 
 ```
 $ cd sales-admin
-$ yarn install
-$ yarn start
+$ npm install
+$ npm start
 ```
 
 A web page should pop up. Drop the CSV file from the data folder onto the main workspace. Enjoy!
