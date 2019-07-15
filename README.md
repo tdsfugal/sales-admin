@@ -1,6 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Sales Admin
 
-## Available Scripts
+To run this demo, first clone this repo then:
+
+```
+$ cd sales-admin
+$ yarn install
+$ yarn start
+```
+
+A web page should pop up. Drop the CSV file from the data folder onto the main workspace. Enjoy!
+
+## Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 In the project directory, you can run:
 
